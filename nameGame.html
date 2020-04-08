@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Camden Coulter Classmate's Sites">
+    <meta name="author" content="Camden Coulter">
+    <link rel="shortcut icon" href="assets/img/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/ico/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="assets/img/ico/apple-touch-icon-57x57.png">
+
+    <title>Camden Coulter</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/customstyles.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/pe-icons.css" rel="stylesheet">
+    <link href="assets/css/customstyles.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            'use strict';
+            jQuery('#headerwrap').backstretch([
+                "assets/images/backgroundProfile/coloradoForest.jpg",
+                "assets/images/backgroundProfile/coloradoMountain.jpg",
+                "assets/images/backgroundProfile/farm.jpg",
+                "assets/images/backgroundProfile/nashvilleLawn.jpg"
+            ], { duration: 8000, fade: 500 });
+        });
+    </script>
+
+</head>
+
+<body id="page-top" class="archive">
+
+    <div class="preloader">
+        <div class="preloader-img">
+            <img src="assets/img/loading-bars.svg" width="100" alt="Loading icon" />
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-shrink bounceInDown">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Code Game</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/camden-coulter/" target="_blank">LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="links.html">Classmates</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/camden-coulter/" target="_blank">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Header -->
+    <header id="headerwrap">
+        <div class="container">
+            <h2 class="single-title wow bounceInDown" data-wow-delay="0.5s">Code Game</h2>
+        </div>
+    </header>
+    <!-- Single Section -->
+    <section>
+
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-md-3"><h1>Click Deal Game to Play Again<span id="rtScore"></span></h1></div>
+                <div class="col-md-2"><h1>Timer:<span id="counter"></span></h1></div>
+                <div class="col-md-1"><input type="button" class="btn btn-success btnCenter" onclick="timer()" id="btnTimer" value="Timer Start" /></div>
+                <div class="col-md-1"><input type="button" class="btn btn-success btnCenter" id="btnGameReset" value="Deal Game" /></div>
+                <div class="col-md-1"><input type="button" class="btn btn-danger btnCenter" id="btnGameKey" value="Game Key" /></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-lg-2 basicCard " id="guessedCard">
+                    <button id="box1" class="genBtn" onclick="revealCard(this.id)"></button>
+                    <h2 class="cardText"><span class="teamCard" id="card1">Game Rules:</span></h2>
+                </div>
+                <div class="col-lg-2 basicCard " id="guessedCard"><button id="box2" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span id="card2">Teams of Two</span></h2></div>
+
+                <div class="col-lg-2 basicCard"><button id="box3" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span id="card3">1 Gives Clues</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box4" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card4">&</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box5" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card5">1 Guesses</span></h2></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-lg-2 basicCard"><button id="box6" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card6">Clues Consist Of:</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box7" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card7">1 Number</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box8" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card8">&</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box9" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card9">1 Word</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box10" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card10">ONLY!</span></h2></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-lg-2 basicCard"><button id="box11" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card11">Blue goes First</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box12" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card12">They have 7</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box13" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card13">Red has 6</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box14" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card14">There Is</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box15" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card15">1 Orange Assassin</span></h2></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-lg-2 basicCard"><button id="box16" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card16">First Team To</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box17" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card17">Guess all Their</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box18" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card18">Cards Before</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box19" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card19">The Other Team</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box20" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card20">Wins!</span></h2></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <div class="col-lg-2 basicCard"><button id="box21" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card21">Pick the</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box22" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card22">Orange</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box23" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card23">Assassin</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box24" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card24">And Your team</span></h2></div>
+                <div class="col-lg-2 basicCard"><button id="box25" class="genBtn" onclick="revealCard(this.id)"></button><h2 class="cardText"><span class="teamCard" id="card25">Loses!</span></h2></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="divider-wrapper-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright wow fadeInUp">Designed by Distinctive Themes<br /><strong><span style="font-style: italic">Heavily</span></strong> modified by Camden Coulter</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="#" id="back-to-top"><i class="pe-7s-angle-up fa-4x"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons wow fadeInUp">
+                        <li>
+                            <a class="rebelandempire" href="https://www.starwars.com/databank/rebel-alliance" target="_blank"><i class="fa fa-rebel"></i></a>
+                        </li>
+                        <li>
+                            <a class="rebelandempire" href="https://www.starwars.com/databank/galactic-empire" target="_blank"><i class="fa fa-empire"></i></a>
+                        </li>
+                        <li>
+                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a class="github" href="https://github.com/ReclaimCamden" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a class="linkedin" href="https://www.linkedin.com/in/camden-coulter/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="assets/js/plugins.js"></script>
+
+    <!-- Plugins -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/contact_me.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/codeGame.js"></script>
+</body>
+
+</html>
